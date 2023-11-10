@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sort String Alphabetically</title>
+    <style>
+        #error-message {
+            color: red;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString">
+    <button onclick="sortString()">Sort</button>
+
+    <p>Sorted String: <span id="sortedResult"></span></p>
+    <p id="error-message"></p>
+
+    <script>
+        function sortString() {
+            var inputString = document.getElementById("inputString").value;
+            var errorMessage = document.getElementById("error-message");
+
+            if (!inputString.trim()) {
+                errorMessage.textContent = "Please enter a valid string.";
+                document.getElementById("sortedResult").textContent = "";
+                return;
+            }
+
+            errorMessage.textContent = "";
+
+            var sortedString = sortStringAlphabetically(inputString);
+
+            document.getElementById("sortedResult").textContent = sortedString;
+        }
+
+        function sortStringAlphabetically(inputString) {
+            return inputString.split('').sort().join('');
+        }
+    </script>
+</body>
+
+</html>

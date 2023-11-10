@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .tableTask {
+            border: 2px solid black;
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .mainA {
+            text-decoration: none;
+            margin-top: 20px;
+            border: 2px solid red;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        a {
+            padding: 30px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .group {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .group label {
+            width: 30%;
+            margin-top: 11px;
+            padding-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 25%;
+        }
+
+        .reg_form h1 {
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .reg_form label {
+            font-size: 16px;
+        }
+
+        .reg_form input,
+        .reg_form select {
+            font-size: 16px;
+        }
+
+        .reg_form button {
+            width: 100%;
+        }
+
+        .form-inp {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .group div {
+            border: 1px solid black;
+            width: 103%;
+            padding-right: 10px;
+        }
+
+        select {
+            grid-column: 2;
+            width: 104%;
+            padding: 10px;
+        }
+
+        .midDiv {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            justify-content: start;
+        }
+
+
+        .midDiv input {
+            width: 5%;
+        }
+
+        .lastDiv {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            text-align: end;
+        }
+
+        .lastDiv a {
+            padding: 0;
+            color: blue;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="tableTask">
+        <div class="container">
+            <div class="reg_form">
+                <h1>Registration Form</h1>
+                <form method="post" id="registrationForm">
+                    <div class=.group">
+                        <label for="fullname">First Name</label>
+                        <input type="text" class="form-control" id="fullname" name="fullname"
+                            placeholder="Enter your first name">
+                        <span class="validation-message" id="firstname-validation"></span>
+                    </div>
+                    <div class=.group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname"
+                            placeholder="Enter your last name">
+                        <span class="validation-message" id="lastname-validation"></span>
+                    </div>
+                    <div class=.group">
+                        <label for="username">Email</label>
+                        <input type="email" class="form-control" id="username" name="username"
+                            placeholder="Enter your email">
+                        <span class="validation-message" id="email-validation"></span>
+                    </div>
+                    <div class=.group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Enter your password">
+                        <span class="validation-message" id="password-validation"></span>
+                    </div>
+                    <div class=.group">
+                        <label for="repassword">Re-enter Password</label>
+                        <input type="password" class="form-control" id="repassword" name="repassword"
+                            placeholder="Re-enter your password">
+                        <span class="validation-message" id="repassword-validation"></span>
+                    </div>
+
+                    <div class=.group">
+                        <label>Gender:</label>
+                        <div class="form-inp">
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                        <span class="validation-message" id="gender-validation"></span>
+
+                    </div>
+
+                    <div class=.group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age">
+                        <span class="validation-message" id="age-validation"></span>
+                    </div>
+                    <div class=.group">
+                        <label for="phonenumber">Phone number</label>
+                        <input type="tel" class="form-control" id="phonenumber" name="phonenumber"
+                            placeholder="Enter your phone number">
+                        <span class="validation-message" id="phonenumber-validation"></span>
+                    </div>
+                    <div class=.group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address"
+                            placeholder="Enter your address">
+                        <span class="validation-message" id="address-validation"></span>
+                    </div>
+
+                    <div class=.group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" name="state" placeholder="Enter your State">
+                        <span class="validation-message" id="state-validation"></span>
+                    </div>
+
+                    <div class=.group">
+                        <label for="country">Country:</label>
+                        <select id="country" name="country">
+                            <option value="">Choose your country</option>
+                            <option value="India">India</option>
+                            <option value="France">France</option>
+                            <option value="UK">UK</option>
+                        </select>
+                        <span class="validation-message" id="country-validation"></span>
+                    </div>
+                    <div class=.group">
+                        <label for="languages">Languages Known:</label><br>
+                        <div class="form-inp">
+                            <input type="radio" id="english" name="languages" value="english">
+                            <label for="english">English</label><br>
+                            <input type="radio" id="kannada" name="languages" value="kannada">
+                            <label for="kannada">Kannada</label><br>
+                            <input type="radio" id="hindi" name="languages" value="hindi">
+                            <label for="hindi">Hindi</label><br>
+                            <input type="radio" id="telugu" name="languages" value="telugu">
+                            <label for="telugu">Telugu</label>
+                        </div>
+                        <span class="validation-message" id="languages-validation"></span>
+                    </div>
+                    <div class="midDiv">
+                        <input type="checkbox" id="declaration" name="declaration">
+                        <label for="declaration">Hereby I declare all the given details are true</label>
+                        <span class="validation-message" id="declaration-validation"></span>
+                    </div>
+
+                    <div class="lastDiv">
+                        Login to <a href="#">Ethnus</a> website
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <a href="./index.html" class="mainA">
+        Go back
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('registrationForm');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const validationMessages = document.querySelectorAll('.validation-message');
+                validationMessages.forEach(message => message.textContent = '');
+
+                const fullname = document.getElementById('fullname').value.trim();
+                const lastname = document.getElementById('lastname').value.trim();
+                const email = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value.trim();
+                const repassword = document.getElementById('repassword').value.trim();
+                const age = document.getElementById('age').value.trim();
+                const phonenumber = document.getElementById('phonenumber').value.trim();
+                const address = document.getElementById('address').value.trim();
+                const state = document.getElementById('state').value.trim();
+                const country = document.getElementById('country').value;
+                const gender = document.querySelector('input[name="gender"]:checked');
+                const languages = document.querySelector('input[name="languages"]:checked');
+                const declaration = document.getElementById('declaration').checked;
+
+                let isValid = true;
+
+                if (fullname === '') {
+                    document.getElementById('firstname-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (lastname === '') {
+                    document.getElementById('lastname-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (email === '') {
+                    document.getElementById('email-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (password === '' || password.length < 8) {
+                    document.getElementById('password-validation').textContent = 'Poor (Length <8)';
+                    isValid = false;
+                }
+
+                if (password === '') {
+                    document.getElementById('repassword-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (password !== repassword) {
+                    document.getElementById('repassword-validation').textContent = 'Mismatch';
+                    isValid = false;
+                }
+
+                if (age === '') {
+                    document.getElementById('age-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (phonenumber === '') {
+                    document.getElementById('phonenumber-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (address === '') {
+                    document.getElementById('address-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (state === '') {
+                    document.getElementById('state-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (country === '') {
+                    document.getElementById('country-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (!languages) {
+                    document.getElementById('languages-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (!gender) {
+                    document.getElementById('gender-validation').textContent = 'Poor';
+                    isValid = false;
+                }
+
+                if (!declaration) {
+                    document.getElementById('declaration-validation').textContent = 'Please accept the declaration';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

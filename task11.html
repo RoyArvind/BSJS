@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form</title>
+  <style>
+    .invalid {
+      border: 2px solid red;
+    }
+
+    .invalidtext {
+      color: red;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inp {
+      margin-top: 20px;
+    }
+
+    input,
+    textarea {
+      width: 25%;
+      margin-top: 10px;
+    }
+
+    label {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="/action_page.php" method="post" class="container">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <span id="name-error" class="invalidtext"></span>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <span id="email-error" class="invalidtext"></span>
+
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website" required>
+    <span id="website-error" class="invalidtext"></span>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    <span id="message-error" class="invalidtext"></span>
+
+    <input type="submit" value="Submit" class="inp">
+  </form>
+
+  <script>
+    function validateEmail(email) {
+      const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      return regex.test(email);
+    }
+
+    function validateWebsite(website) {
+      const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+      return regex.test(website);
+    }
+
+    const submitButton = document.querySelector('input[type="submit"]');
+    submitButton.addEventListener('click', function (event) {
+      const emailField = document.querySelector('#email');
+      const websiteField = document.querySelector('#website');
+      const nameField = document.querySelector('#name');
+      const messageField = document.querySelector('#message');
+
+      const labelname = document.querySelector("label[for='name']")
+      const labelemail = document.querySelector("label[for='email']")
+      const labelurl = document.querySelector("label[for='website']")
+      const labelmessage = document.querySelector("label[for='message']")
+
+      const nameError = document.querySelector("#name-error");
+      const emailError = document.querySelector("#email-error");
+      const websiteError = document.querySelector("#website-error");
+      const messageError = document.querySelector("#message-error");
+
+      emailField.classList.remove('invalid');
+      websiteField.classList.remove('invalid');
+      nameField.classList.remove('invalid');
+      messageField.classList.remove('invalid');
+
+      labelname.classList.remove('invalidtext');
+      labelemail.classList.remove('invalidtext');
+      labelurl.classList.remove('invalidtext');
+      labelmessage.classList.remove('invalidtext');
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      websiteError.textContent = '';
+      messageError.textContent = '';
+
+      if (!validateEmail(emailField.value)) {
+        emailField.classList.add('invalid');
+        labelemail.classList.add('invalidtext');
+        emailError.textContent = 'A valid email is required.';
+        event.preventDefault();
+      }
+
+      if (!validateWebsite(websiteField.value)) {
+        websiteField.classList.add('invalid');
+        labelurl.classList.add('invalidtext');
+        websiteError.textContent = 'A valid website is required.';
+        event.preventDefault();
+      }
+
+      if (nameField.value === '') {
+        nameField.classList.add('invalid');
+        labelname.classList.add('invalidtext');
+        nameError.textContent = 'Name cannot be empty.';
+        event.preventDefault();
+      }
+
+      if (messageField.value === '') {
+        messageField.classList.add('invalid');
+        labelmessage.classList.add('invalidtext');
+        messageError.textContent = 'Message cannot be empty.';
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+
+</html>

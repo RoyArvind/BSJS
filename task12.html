@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Construction Company Website Template" name="keywords">
+    <meta content="Construction Company Website Template" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .logo {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .input-group {
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .input-group i {
+            color: #666;
+            position: absolute;
+            top: 20%;
+            left: 2%;
+            z-index: 100;
+        }
+
+        .input-group input {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 13px;
+            width: 100%;
+            padding-left: 40px;
+        }
+
+        .login-button {
+            background-color: #0383d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .login-button:hover {
+            background-color: #008ae0;
+        }
+
+        .options {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .options a {
+            text-decoration: none;
+            color: #0482d6;
+        }
+
+        .mainDiv {
+            background-color: #dedede;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="mainDiv">
+            <h4 class="logo">Instagram</h4>
+
+            <div class="input-group">
+                <i class="icon fa fa-user"></i>
+                <input type="text" id="username" placeholder="Username">
+            </div>
+
+            <div class="input-group">
+                <i class="icon fa fa-lock"></i>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+
+            <button class="login-button" onclick="validateForm()">Log in</button>
+
+            <div class="options">
+                <div>
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+        <div>
+            Don't have an account? <a href="#">Sign up here.</a>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            
+            if (!emailRegex.test(username)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (password.length < 1) {
+                alert("Please enter password correctly");
+                return;
+            }
+
+            alert("Login successful!");
+        }
+    </script>
+</body>
+
+</html>

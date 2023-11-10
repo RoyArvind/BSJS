@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #dateTimeDisplay {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p id="dateTimeDisplay">Date and Time: <span id="formattedDateTime"></span></p>
+
+  <button onclick="toggleDateTimeDisplay()">Show Date and Time</button>
+  <button onclick="hideDateTimeDisplay()">Hide Date and Time</button>
+
+  <script>
+    function updateDateTime() {
+      var currentDate = new Date();
+      var dateTimeElement = document.getElementById("formattedDateTime");
+
+      var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true
+      };
+
+      dateTimeElement.textContent = currentDate.toLocaleString('en-US', options);
+    }
+
+    setInterval(updateDateTime, 1000);
+
+    function toggleDateTimeDisplay() {
+      var dateTimeElement = document.getElementById("dateTimeDisplay");
+      dateTimeElement.style.display = (dateTimeElement.style.display === "none") ? "block" : "none";
+    }
+
+    function hideDateTimeDisplay() {
+      var dateTimeElement = document.getElementById("dateTimeDisplay");
+      dateTimeElement.style.display = "none";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reverse Number</title>
+    <style>
+        #error-message {
+            color: red;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for="number">Enter a number:</label>
+    <input type="text" id="numberInput">
+    <button onclick="reverseNumber()">Reverse</button>
+
+    <p>Reversed Number: <span id="result"></span></p>
+    <p id="error-message"></p>
+
+    <script>
+        function reverseNumber() {
+            var inputNumber = document.getElementById("numberInput").value;
+            var errorMessage = document.getElementById("error-message");
+
+            if (!inputNumber || isNaN(inputNumber)) {
+                errorMessage.textContent = "Please enter a valid number.";
+                document.getElementById("result").textContent = "";
+                return;
+            }
+
+            errorMessage.textContent = ""; 
+
+            var reversedNumber = inputNumber.split('').reverse().join('');
+            document.getElementById("result").textContent = reversedNumber;
+        }
+    </script>
+</body>
+
+</html>
